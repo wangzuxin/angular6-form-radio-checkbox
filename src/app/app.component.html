@@ -1,0 +1,17 @@
+<form name="forms1" #myForm ngForms>
+  <div>
+    <input name="name" type="text" [(ngModel)]="myInfo.name">
+  </div>
+  <div>
+    <input type="radio" name="radio" value="男" [(ngModel)]="myInfo.sex">男
+    <input type="radio" name="radio" value="女" [(ngModel)]="myInfo.sex">女
+  </div>
+  <div>
+    hobbies:
+    <div *ngFor="let item of hobbies;let i = index;">
+      <input type="checkbox" name="hobbies" value="{{item}}" (click)="selectItem(i,$event.target.checked,$event.target.value)">{{item}}
+    </div>
+  </div>
+  {{myInfo |json}}
+</form>
+
